@@ -9,11 +9,11 @@
 
 
 # Conceitos Básicos
-	* senha de administrador - senha utilizada para recursos avançados de segurança
-	* senha de usuário - senha normal de uso. A senha do administrador só será considerada correta para uso normal se não houver senha de usuário cadastrada.
-	* bloqueio de teclado para usuário - o teclado passa a não mais aceitar a digitação de senha de usuário.
-	* bloqueio de teclado para administrador - o teclado fica completamente inoperante para digitação de senhas ou comandos
-	* tempo para "reset" de bloqueio de teclado - é o tempo para que o seistema volte automaticamente a aceitar novamente a digitação de senhas após um bloqueio de teclado
+* **senha de administrador** - senha utilizada para recursos avançados de segurança
+* **senha de usuário** - senha normal de uso. A senha do administrador só será considerada correta para uso normal se não houver senha de usuário cadastrada.
+* **bloqueio de teclado para usuário** - o teclado passa a não mais aceitar a digitação de senha de usuário.
+* **bloqueio de teclado para administrador** - o teclado fica completamente inoperante para digitação de senhas ou comandos
+* **tempo para "reset" de bloqueio de teclado** - é o tempo para que o seistema volte automaticamente a aceitar novamente a digitação de senhas após um bloqueio de teclado
 
 
 # Propriedade e Funções planejadas
@@ -22,21 +22,20 @@
 	Vai herdar todas as características da classe keypad e incluir:
 
 		- Propriedades novas: (ideias a aprimorar)
-* int password_User - guarda endereço da EEPROM onde estará registrada a senha de usuário (default: 100)
-* int errorCountUser - guarda o número de digitação errada de senha de usuário (inicial: 0)
-* byte passwordUserLength - guarda o número de dígitos da senha de usuário (mínimo 4 dígitos - máximo 8 dígitos) (default: 4)
+* **int password_User** - guarda endereço da EEPROM onde estará registrada a senha de usuário (default: 100)
+* **int errorCountUser** - guarda o número de digitação errada de senha de usuário (inicial: 0)
+* **byte passwordUserLength** - guarda o número de dígitos da senha de usuário (mínimo 4 dígitos - máximo 8 dígitos) (default: 4)
 
-* int password_Admin - guarda o endereço da EEPROM onde estará registrada a senha de administrador (default: 200)
-* int errorCountAdmin - guarda o número de digitação errada da senha de administrador (inicial: 0)
-* byte passwordAdminLength - guarda o número de dígitos da senha do administrador (mínimo 4 dígitos - máximo 8 dígitos) (default: 4)
+* **int password_Admin** - guarda o endereço da EEPROM onde estará registrada a senha de administrador (default: 200)
+* **int errorCountAdmin** - guarda o número de digitação errada da senha de administrador (inicial: 0)
+* **byte passwordAdminLength** - guarda o número de dígitos da senha do administrador (mínimo 4 dígitos - máximo 8 dígitos) (default: 4)
 
-* char password [8] - guarda a senha digitada (mínimo 4 dígitos - máximo 8 dígitos)
-* int resetMode - configura o modo de reset de bloqueio (0 - só com senha do administrador, 1 - por tempo ou senha do administrador) (Observação: caso erre várias vezes a senha do administrador, utiliza o bloqueio de tempo sempre)
-* int resetTime - configura o tempo do reset de bloqueio em segundos (default: 600 ou seja 10 minutos)
-* boolean userBlocked - guarda o status de "bloqueio de teclado" para usuário (default: false)
-* boolean adminBlocked - guarda o status de "bloqueio de teclado" para administrador (default: false)
-
-		- métodos novos (ideias a aprimorar)
+* **char password [8]** - guarda a senha digitada (mínimo 4 dígitos - máximo 8 dígitos)
+* **int resetMode** - configura o modo de reset de bloqueio (0 - só com senha do administrador, 1 - por tempo ou senha do administrador) (Observação: caso erre várias vezes a senha do administrador, utiliza o bloqueio de tempo sempre)
+* **int resetTime** - configura o tempo do reset de bloqueio em segundos (default: 600 ou seja 10 minutos)
+* **boolean userBlocked** - guarda o status de "bloqueio de teclado" para usuário (default: false)
+* **boolean adminBlocked** - guarda o status de "bloqueio de teclado" para administrador (default: false)
+## Métodos novos (ideias a aprimorar)
 * passwordUserWrite () - (método let) escreve o password no endereço informado (propriedade "passwordUser") 
 * passwordUserRead () - (método get) lê a senha digitada no endereço informado (propriedade "passwordUser")
 * passwordUserReset() - reseta o password de usuário para "configuração de fábrica". O sistema passará a funcionar apenas com a senha do administrador. 
